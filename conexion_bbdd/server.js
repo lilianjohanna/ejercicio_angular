@@ -1,8 +1,14 @@
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+// Configuración de Body-parser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Configura el middleware CORS
 app.use(cors());

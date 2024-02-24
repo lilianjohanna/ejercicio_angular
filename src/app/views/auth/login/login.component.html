@@ -1,0 +1,34 @@
+<section class="bg-gray-50">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                  Iniciar sesion
+              </h1>
+              <form class="space-y-4 md:space-y-6" action="#">
+                  <div>
+                      <app-input-text label="Usuario" />
+                  </div>
+                  <div>
+                      <app-input-text type="password" label="Contraseña" />
+                  </div>
+                  <div class="flex items-center justify-between">
+                      <div class="flex items-start">
+                          <div class="flex items-center h-5">
+                            <input id="remember" type="checkbox" required="">
+                          </div>
+                          <div class="ml-3 text-sm">
+                            <label for="remember" class="text-gray-500 dark:text-gray-300">Recordarme</label>
+                          </div>
+                      </div>
+                      <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Olvidaste la contraseña?</a>
+                  </div>
+                  <button type="submit" class="w-full block py-1 px-3 text-lg bg-blue-500 text-white rounded-md hover:bg-blue-600 active:bg-blue-700" routerLink="/dashboard/survey-form">Iniciar</button>
+                  <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Desea crear una nueva cuenta: <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Crear cuenta.</a>
+                  </p>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

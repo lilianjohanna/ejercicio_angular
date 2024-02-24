@@ -20,7 +20,7 @@ connection.connect();
 
 // Ruta para obtener los datos del select
 app.get('/datos-select', (req, res) => {
-  connection.query('SELECT id, nombre FROM tabla', (error, results, fields) => {
+  connection.query('SELECT id, nombre FROM lista', (error, results, fields) => {
     if (error) {
       console.error('Error al ejecutar la consulta: ', error);
       res.status(500).json({ error: 'Error al obtener los datos' });

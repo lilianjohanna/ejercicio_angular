@@ -9,9 +9,9 @@ app.use(cors());
 
 // Configura la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
-  host: 'abcpublicar.com',
-  user: 'root',
-  password: 'Nojoda2024*',
+  host: '190.8.176.29',
+  user: 'abcpubli_usrangular',
+  password: 'Angular1234*',
   database: 'abcpubli_conexionangular'
 });
 

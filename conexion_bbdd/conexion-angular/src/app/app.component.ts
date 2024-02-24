@@ -12,6 +12,7 @@ import { DatosService } from './datos.service';
 export class AppComponent implements OnInit{
   title = 'conexion-angular';
   datosSelect: any[] = [];
+dato: any;
   //obtenerDatosSelect: any;
 
   constructor(private datosService: DatosService) {}

@@ -227,7 +227,7 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <select>
-        <option *ngFor="let dato of datosSelect" [value]="dato.id">{{ dato.nombre }}</option>
+        <option ngFor="let dato of datosSelect" [value]="dato.id">{{ dato.nombre }}</option>
       </select>      
       <p>Congratulations! Your app is running. 🎉</p>
     </div>

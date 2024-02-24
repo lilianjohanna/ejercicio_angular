@@ -24,7 +24,7 @@ if ($metodo != "DELETE" && $metodo != "OPTIONS") {
     exit("Solo se permite método DELETE");
 }
 
-if (empty($_GET["idMascota"])) {
+if (empty($_GET["id"])) {
     exit("No hay id de mascota para eliminar");
 }
 $idMascota = $_GET["idMascota"];

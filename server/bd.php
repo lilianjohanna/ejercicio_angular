@@ -17,11 +17,11 @@
     Contacto:   https://parzibyte.me/blog/contacto/
 */ ?>
 <?php
-$contraseña = "";
-$usuario = "root";
-$nombre_base_de_datos = "mascotas";
+$contraseña = "Angular1234*";
+$usuario = "abcpubli_usrangular";
+$nombre_base_de_datos = "abcpubli_conexionangular";
 try {
-    return new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
+    return new PDO('mysql:host=abcpublicar.com;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
 } catch (Exception $e) {
     echo "Ocurrió algo con la base de datos: " . $e->getMessage();
 }

@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: './app/app.component.ts',
-  templateUrl: './tu-componente.component.html',
-  styleUrls: ['./tu-componente.component.css']
+  templateUrl: '../backend/backend.js',
+  styleUrls: ['../styles.css']
 })
 export class TuComponenteComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class TuComponenteComponent implements OnInit {
   }
 
   obtenerDatosSelect() {
-    this.http.get<any[]>('http://localhost:3306/datos-select').subscribe(
+    this.http.get<any[]>('http://localhost:3000/datos-select').subscribe(
       response => {
         this.datosSelect = response;
       },

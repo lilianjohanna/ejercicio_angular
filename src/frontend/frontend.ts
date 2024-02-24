@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-tu-componente',
+  selector: './app/app.component.ts',
   templateUrl: './tu-componente.component.html',
   styleUrls: ['./tu-componente.component.css']
 })

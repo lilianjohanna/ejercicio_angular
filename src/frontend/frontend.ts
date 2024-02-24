@@ -17,7 +17,7 @@ export class TuComponenteComponent implements OnInit {
   }
 
   obtenerDatosSelect() {
-    this.http.get<any[]>('http://localhost:3000/datos-select').subscribe(
+    this.http.get<any[]>('http://localhost:3306/datos-select').subscribe(
       response => {
         this.datosSelect = response;
       },

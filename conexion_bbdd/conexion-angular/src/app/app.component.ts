@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DatosService } from './datos.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,24 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'conexion-angular';
+  datosSelect: any[] = [];
+  //obtenerDatosSelect: any;
+
+  constructor(private datosService: DatosService) {}
+
+  ngOnInit(): void {
+    this.obtenerDatosSelect();
+  }
+  obtenerDatosSelect() {
+    this.datosService.obtenerDatosSelect().subscribe(
+      response => {
+        this.datosSelect = response;
+      },
+      error => {
+        console.error('Error al obtener datos del select: ', error);
+      }
+    );
+  }
 }

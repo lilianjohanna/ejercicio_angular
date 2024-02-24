@@ -9,5 +9,8 @@
 </head>
 <body>
   <app-root></app-root>
+  <select>
+        <option *ngFor="let dato of datosSelect" [value]="dato.id">{{ dato.nombre }}</option>
+  </select>
 </body>
 </html>

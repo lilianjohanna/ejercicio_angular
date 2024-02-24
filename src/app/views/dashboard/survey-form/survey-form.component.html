@@ -67,7 +67,7 @@
             </div>
             <div class="col-span-4 ui-box-input">
                 <div class="grid gap-3">
-                    <app-input-select index="5" label="Departamento" icon="fa-map-marker" />
+                    <app-input-select index="5" label="Departamento" icon="fa-map-marker" [options]="DataForm.departamento" />
                     <app-input-select index="5.1" label="Municipio y direccion" icon="fa-map-marker" />
                     <app-input-modal-address />
                     <app-input-text index="6" label="Teléfono de contacto" icon="fa-phone" />

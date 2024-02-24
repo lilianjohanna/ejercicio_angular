@@ -489,5 +489,17 @@ export const DataForm = {
             value: 6,
             label: 'Otra.'
         },
+    ],
+    departamento: [
+        {
+            id: 1,
+            value: 1,
+            label: 'Cundinamarca'    
+        },
+        {
+            id: 2,
+            value: 2,
+            label: 'Boyacá'
+        }
     ]
 }

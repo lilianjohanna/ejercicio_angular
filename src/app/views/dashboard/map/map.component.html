@@ -1,0 +1,54 @@
+<section class="pt-3">
+    <div class="input-group input-group-sm">
+        <select id="drawType" class="form-select" [formControl]="drawTypeSelect" (change)="onChangeDrawType()">
+            @for(item of optionsSelect(); track $index) {
+                <option [value]="item.value">{{ item.label }}</option>
+            }
+        </select>
+        <label class="input-group-text">
+            URL
+        </label>
+        <input type="url" class="form-control" [formControl]="urlFile">
+        <button type="button" class="btn btn-success" (click)="loadFileFromURL(urlFile.value)">
+            <i class="fa fa-save mr-2"></i>
+            Cargar
+        </button>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" accept="">
+        <button type="button" class="btn btn-light" (click)="activeClickEvent()">
+            <i class="fa mr-2" [ngClass]="[!ActiveMarkersLayer ? 'fa-lock' : 'fa-unlock-alt']"></i>
+            Marcador
+        </button>
+    </div>
+    <!-- map -->
+    <div id="map" style="width: 100%; height: 600px;"></div>
+    <!--  -->
+    <div class="input-group input-group-sm mb-5">
+        <input type="text" class="form-control" [formControl]="nameSearchLocation">
+        <button type="button" class="btn btn-primary" (click)="serachLocation()">
+            <i class="fa fa-search mr-2"></i>
+            Buscar
+        </button>
+        <select id="drawType" class="form-select" [formControl]="formatSaveSelect">
+            @for(item of optionsFormatSave(); track $index) {
+                <option [value]="item.value">{{ item.label }}</option>
+            }
+        </select>
+        <button type="button" class="btn btn-success" (click)="saveChanges()">
+            <i class="fa fa-save mr-2"></i>
+            Guardar
+        </button>
+    </div>
+    <div class="flex fle-wrap">
+        <div class="w-4/12">
+            <div class="border rounded-md p-3">
+                <ul class="divide-y">
+                    @for(item of vectorLayers; track item; let index = $index) {
+                        <li class="block py-1">{{ item.A.name }} <button type="button"  (click)="removeLayer(index)" class="text-red-500 float-right"><i class="fa fa-trash-o"></i></button></li>
+                    } @empty {
+                        <div>Cargar archivo</div>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

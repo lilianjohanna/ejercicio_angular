@@ -1,13 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { OpcionesService } from './opciones.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <select>
+      <option *ngFor="let opcion of opciones" [value]="opcion.id">{{ opcion.nombre }}</option>
+    </select>
+  `,
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'conexion_angular';
+export class AppComponent implements OnInit {
+  opciones: any[] = [];
+
+  constructor(private opcionesService: OpcionesService) {}
+
+  ngOnInit() {
+    this.obtenerOpciones();
+  }
+
+  obtenerOpciones() {
+    this.opcionesService.obtenerOpciones().subscribe(
+      (data: any[]) => {
+        this.opciones = data;
+      },
+      error => {
+        console.error('Error al obtener opciones: ', error);
+      }
+    );
+  }
 }

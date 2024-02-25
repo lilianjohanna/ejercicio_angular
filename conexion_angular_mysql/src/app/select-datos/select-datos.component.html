@@ -1,1 +1,5 @@
 <p>select-datos works!</p>
+<select>
+    <option *ngFor="let dato of datos" [value]="dato.id">{{ dato.nombre }}</option>
+  </select>
+  

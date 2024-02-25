@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-app.get('/opciones', (req, res) => {
+app.get('/select-datos', (req, res) => {
   connection.query('SELECT * FROM lista', (error, results) => {
     if (error) throw error;
     console.log(`Conexión correcta`);

@@ -8,14 +8,14 @@ const port = 3000;
 app.use(cors());
 
 const connection = mysql.createConnection({
-  host: 'abcpublicar.com',
+  host: 'localhost',
   user: 'abcpubli_usrangular',
   password: 'Angular1234*',
   database: 'abcpubli_conexionangular'
 });
 
 const server = app.listen({
-  host: 'abcpublicar.com',
+  host: 'localhost',
   port: 3000,
   // Aumenta el tiempo de espera (en milisegundos)
   timeout: 120000, // 2 minutos

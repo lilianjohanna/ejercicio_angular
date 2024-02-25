@@ -1,25 +1,40 @@
-// Importar las dependencias necesarias
 const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
 
-// Crear una instancia de Express
 const app = express();
-const port = 3000; // Puerto en el que se ejecutará el servidor
+const port = 3000;
 
-// Endpoint para la ruta raíz
-app.get('/', (req, res) => {
-  res.send('¡Bienvenido a mi API RESTful con Node.js y Express.js!');
+// Configuración del body parser para parsear solicitudes JSON
+app.use(bodyParser.json());
+
+// Configurar la conexión a la base de datos
+const connection = mysql.createConnection({
+  host: 'abcpublicar.com',
+  user: 'abcpubli_usrangular',
+  password: 'Angular1234*',
+  database: 'abcpubli_conexionangular'
 });
 
-// Endpoint para una ruta específica (ejemplo)
-app.get('/api/usuarios', (req, res) => {
-  // Aquí podrías recuperar los datos de la base de datos o de cualquier otra fuente
-  const usuarios = [
-    { id: 1, nombre: 'Usuario 1' },
-    { id: 2, nombre: 'Usuario 2' },
-    { id: 3, nombre: 'Usuario 3' }
-  ];
-  
-  res.json(usuarios); // Enviar los datos como JSON
+// Conectar a la base de datos
+connection.connect((err) => {
+  if (err) {
+    console.error('Error de conexión a la base de datos:', err);
+    return;
+  }
+  console.log('Conexión a la base de datos establecida');
+});
+
+// Ruta para obtener todos los elementos de la base de datos
+app.get('/items', (req, res) => {
+  connection.query('SELECT * FROM lista', (error, results, fields) => {
+    if (error) {
+      console.error('Error al realizar la consulta:', error);
+      res.status(500).send('Error al obtener los datos');
+      return;
+    }
+    res.json(results);
+  });
 });
 
 // Iniciar el servidor

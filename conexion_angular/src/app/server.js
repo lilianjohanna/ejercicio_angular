@@ -16,9 +16,9 @@ const connection = mysql.createConnection({
 
 const server = app.listen({
   host: 'localhost',
-  port: 3000,
+  port: 8080,
   // Aumenta el tiempo de espera (en milisegundos)
-  timeout: 120000, // 2 minutos
+  timeout: 300000, // 5 minutos
 });
 
 connection.connect();

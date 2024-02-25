@@ -26,7 +26,7 @@ connection.connect((err) => {
 });
 
 // Ruta para obtener todos los elementos de la base de datos
-app.get('/items', (req, res) => {
+app.get('./items', (req, res) => {
   connection.query('SELECT id,nombre FROM lista', (error, results, fields) => {
     if (error) {
       console.error('Error al realizar la consulta:', error);

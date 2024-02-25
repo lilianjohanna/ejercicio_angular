@@ -14,6 +14,13 @@ const connection = mysql.createConnection({
   database: 'abcpubli_conexionangular'
 });
 
+const server = app.listen({
+  host: '190.8.176.29',
+  port: 3000,
+  // Aumenta el tiempo de espera (en milisegundos)
+  timeout: 120000, // 2 minutos
+});
+
 connection.connect();
 
 app.get('/opciones', (req, res) => {

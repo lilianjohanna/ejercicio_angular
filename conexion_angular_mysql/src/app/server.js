@@ -21,6 +21,7 @@ connection.connect();
 app.get('/opciones', (req, res) => {
   connection.query('SELECT * FROM lista', (error, results) => {
     if (error) throw error;
+    console.log(`Conexión correcta`);
     res.json(results);
   });
 });

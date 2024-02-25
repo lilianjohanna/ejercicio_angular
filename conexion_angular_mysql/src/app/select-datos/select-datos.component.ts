@@ -17,7 +17,7 @@ export class TuComponenteComponent implements OnInit {
   }
 
   cargarOpciones() {
-    this.http.get<any[]>('http://localhost:3000/opciones').subscribe(
+    this.http.get<any[]>('http://localhost:3000/select-datos').subscribe(
       data => {
         this.opciones = data;
       },

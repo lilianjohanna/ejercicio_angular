@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
 });
 
 const server = app.listen({
-  host: '190.8.176.29',
+  host: 'abcpublicar.com',
   port: 3000,
   // Aumenta el tiempo de espera (en milisegundos)
   timeout: 120000, // 2 minutos

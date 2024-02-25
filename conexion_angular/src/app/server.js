@@ -8,7 +8,7 @@ const port = 3000;
 app.use(cors());
 
 const connection = mysql.createConnection({
-  host: '190.8.176.29',
+  host: 'abcpublicar.com',
   user: 'abcpubli_usrangular',
   password: 'Angular1234*',
   database: 'abcpubli_conexionangular'

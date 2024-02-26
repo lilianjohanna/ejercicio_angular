@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from './app.service';
-import {NgFor} from '@angular/common';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-selectivo',

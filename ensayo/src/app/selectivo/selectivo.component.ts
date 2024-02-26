@@ -1,22 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from './app.service';
-import { NgFor } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-selectivo',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
   templateUrl: './selectivo.component.html',
   styleUrl: './selectivo.component.css'
 })
-export class SelectivoComponent implements OnInit {
-  options: any[] = [];
-
-  constructor(private dataService: DataService) { }
-
-  ngOnInit(): void {
-    this.dataService.getOptions().subscribe((data: any[]) => {
-      this.options = data;
-    });
-  }
+export class SelectivoComponent {
+  @Input() label: string = '';
+    @Input() icon: string = '';
+    @Input() type: string = 'text';
+    @Input() index: string = '';
+    @Input() ui: 'default' | 'lg' | 'sm' = 'lg';
+    @Input() options: any[] = [];
+    get sizeLabel() {
+        switch(this.ui) {
+        case 'lg':
+            return 'mb-2 text-[1.1rem] font-semibold';
+        default:
+            return 'mb-1 text-[.9rem]'
+        }
+    }
 }

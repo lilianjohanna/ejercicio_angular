@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from './app.service';
+import {NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-selectivo',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './selectivo.component.html',
   styleUrl: './selectivo.component.css'
 })

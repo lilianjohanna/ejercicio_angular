@@ -18,3 +18,4 @@ export class SelectivoComponent implements OnInit {
       this.options = data;
     });
   }
+}

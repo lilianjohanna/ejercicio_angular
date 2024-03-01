@@ -1,0 +1,321 @@
+<form class="grid grid-cols-12 gap-5 p-4" (submit)="submit()" [formGroup]="registroForm">
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-5 items-center">
+            <div class="col-span-8 text-center">
+                <h1 class="text-2xl yuca">ENCUESTA DE CARACTERIZACIÓN <b class="text-orange-500">MIGRANTES</b></h1>
+                <p>Nota: se aplica a mayores de 14 años</p>
+            </div>
+            <div class="col-span-4">
+                <div class="grid grid-cols-12 gap-3 items-center border rounded-md p-3">
+                    <div class="col-span-4 text-center">
+                        <h1 class="text-xl">Encuestador</h1>
+                    </div>
+                    <div class="col-span-8">
+                        <app-input-text label="Codigo" />
+                    </div>
+                    <div class="col-span-full">
+                        <app-input-text formControlName="codigo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full mb-6">
+        <div class="grid grid-cols-12 gap-4 items-end">
+            <div class="col-span-8">
+                <div class="block bg-orange-100 p-3 rounded-md">
+                    <strong class="text-lg">CONFIDENCIALIDAD:</strong>
+                    <p>Los datos consignados en este formulario son estrictamente confidenciales y serán utilizados únicamente con fines académicos y estadísticos.</p>
+                </div>
+            </div>
+            <div class="col-span-4">
+                <app-input-text label="Fecha de encuesta" formControlName="fechaEncuesta" type="date" />
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">I. CARACTERISTICAS SOCIODEMOGRAFICAS <span class="text-orange-500">(Marque con una X)</span></h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-text type="date" index="1" label="Fecha de ingreso al País" formControlName="fechaIngresoPais" />
+            </div>
+            <div class="col-span-4 grid gap-3 grid-cols-12 ui-box-input">
+                <div class="col-span-8">
+                    <app-input-text type="text" index="2" label="Nombre y apellido" formControlName="nombre" />
+                </div>
+                <div class="col-span-4">
+                    <app-input-text type="number" index="2.1" label="Edad" formControlName="edad" />
+                </div>
+            </div>
+            <div class="col-span-4 grid gap-3 grid-cols-12 ui-box-input">
+                <div class="col-span-6">
+                    <app-input-check icon="fa-phone" index="3" label="Sexo" [options]="DataForm.sexo" formControlName="sexo" />
+                </div>
+                <div class="col-span-6">
+                    <app-input-check icon="fa-phone" index="3.1" label="Embarazo?" [options]="DataForm.siNo" formControlName="embarazo" />
+                </div>
+            </div>
+            <div class="col-span-8 grid gap-3 grid-cols-12 ui-box-input">
+                <div class="col-span-6">
+                    <app-input-check index="4" label="Grado de escolaridad" [options]="DataForm.gradoEscolar" />
+                </div>
+                <div class="col-span-6">
+                    <app-input-textarea index="4.1" label="Título académico" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <div class="grid gap-3">
+                    <app-input-select index="5" label="Departamento" icon="fa-map-marker" />
+                    <app-input-select index="5.1" label="Municipio y direccion" icon="fa-map-marker" />
+                    <app-input-modal-address />
+                    <app-input-text index="6" label="Teléfono de contacto" icon="fa-phone" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="8" label="Qué tipo de documento de identificación tiene?" [options]="DataForm.tipoDocumento" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="9" label="Actualmente se encuentra registrado(a) en el registro. para el Migrante Venezolano (RAMV)?" [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-textarea index="9.1" label="Si contesto No indique la razón" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="10" label="Su situación actual es:" [options]="DataForm.condicionActual" />
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">II. PROYECCIÓN <span class="text-orange-500">PREGUNTAS (Marque con una X)</span></h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="11" label="En el futuro usted esperaría:" [options]="DataForm.proyeccionFuturo" />
+                <div class="mt-3">
+                    <app-input-text index="11.1" label="Lugar destino" icon="fa-map-marker" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="12" label="Cuál es su proyección en el país?" [options]="DataForm.proyeccionPais" />
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">III. FAMILIA</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="13" label="Indique con quién migró desde su país:" [options]="DataForm.conQuienMigra" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-text index="14" type="number" label="Con cuántas personas migró desde su país?" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-title-index index="15" type="number" label="Indique los menores de 14 años que se encuentran Radicarse en Colombia ahora con usted" />
+                <div class="mt-3 p-3 rounded-md bg-orange-100">
+                    Nota: si la encuesta se aplica a personas de la misma familia, registrar esta informacion sólo en una de las encuestas, para no repetir datos.
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="33%">Edad</th>
+                            <th width="33%">A M</th>
+                            <th width="33%">Sexo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        @for(item of getValue('menoresDeEdad'); track item){
+                            <tr class="divide-x">
+                                <td>{{ item.edad }}</td>
+                                <td>{{ item.am }}</td>
+                                <td>{{ item.sexo }}</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td class="pt-2"><app-input-text type="number" [formControl]="menorEdad.edad" name="edad" /></td>
+                            <td class="pt-2"><app-input-text type="text" [formControl]="menorEdad.am" name="am" /></td>
+                            <td class="pt-2"><app-input-select [options]="DataForm.sexo" name="sexo" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="block text-end mt-3">
+                    <button type="button" (click)="addMenor()" class="inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">IV. LABORAL</h1>
+    </div>
+    <div class="col-span-4">
+        <div class="col-span-full grid grid-cols-12 gap-4">
+            <div class="col-span-full ui-box-input grid grid-cols-12 gap-2">
+                <div class="col-span-full">
+                    <app-title-index index="16" label="Mencione qué campos ha tenido mayor experiencia laboralmente:" />
+                </div>
+                <div class="col-span-7">
+                    <app-input-text label="Experiencia" />
+                </div>
+                <div class="col-span-5">
+                    <app-input-text type="number" label="Años de exp.." />
+                </div>
+                <div class="col-span-full">
+                    <div class="block text-end">
+                        <button type="button" class="inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">V. AYUDA RECIBIDA</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4">
+                <div class="col-span-full ui-box-input">
+                    <app-input-check index="17" label="Actualmente, pertenece a una organización comunitaria Hijos (Ej. Iglesia, asociación de mujeres…)"  [options]="DataForm.siNo" />
+                    <div class="mt-3">
+                        <app-input-textarea label="Si contesto 'Si'. Cuales?" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4">
+                <div class="col-span-full ui-box-input">
+                    <app-title-index index="18" label="Si recibió ayuda de entidades, mencionelas" />
+                    <div class="block mt-3">
+                        <app-input-text />
+                        <app-input-textarea [row]="2" index="19" label="Describir ayuda" />
+                        <div class="block text-end mt-3">
+                            <button type="button" class="inline-block py-1 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="20" label="Cuenta con el apoyo de alguien en el país?" [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-text label="De quién?" />
+                </div>
+                <div class="mt-3">
+                    <app-input-text type="tel" icon="fa-phone" label="Tel. de contacto: (RCF)" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="21" label="Actualmente, su hijo(a) o hijos asisten a una Institución Educativa en Colombia?" [options]="DataForm.siNo" />
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">VI. SALUD</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="22" label='Ha tenido algún tipo de accidente y/o enfermedad durante la permanencia en el país?' [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-textarea label="Si contesto 'Si'. Cuales?" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">VII. ASPECTO ECONÓMICO</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-text index="23" type="number" label="Cuántas personas dependen económicamente de usted?" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-text index="24" type="number" icon="fa-dollar" label="Cuál es el valor promedio de sus gastos al mes? (Determine un valor estimado)" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-text index="25" type="number" icon="fa-dollar" label="Cuál es el valor promedio de sus ingresos al mes? (Determine un valor estimado)" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="26" label="La fuente de ingresos es:" [options]="DataForm.fuenteIngreso" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="27" label="Si recibe algún tipo de ingreso, la forma de pago es:" [options]="DataForm.formaPagoIngreso" />
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="28" label='Envía dinero a familiares que se encuentran en su paìs?' [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-text type="number" icon="fa-dollar" label="(Indique el valor aproximado)" />
+                </div>
+            </div>
+            <div class="col-span-4">
+                <div class="block ui-box-input mb-3">
+                    <app-input-textarea index="29" [row]="2" label="Mencione que actividad laboral realiza actualmente" />
+                </div>
+                <div class="block ui-box-input">
+                    <app-input-check type="checkbox" index="32" label='Indique cuáles son las dos principales necesidades que tienen usted y/o su familia.' [options]="DataForm.necesidadesFamilia" />
+                    <div class="mt-3">
+                        <app-input-textarea label="Cuál?" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="30" label='En dónde realiza principalmente su trabajo o actividad económica?' [options]="DataForm.actividadEconimica" />
+                <div class="mt-3">
+                    <app-input-textarea label="Cuál?" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="31" label='La vivienda ocupada por usted en la actualidad es:' [options]="DataForm.viviendaOcupada" />
+                <div class="mt-3">
+                    <app-input-textarea label="Cuál?" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="32" label='Indique cuáles son las dos principales necesidades que tienen usted y/o su familia.' [options]="DataForm.principalesNecesidades" />
+                <div class="mt-3">
+                    <app-input-textarea label="Si selecciono otros diga, Cuál?" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">VIII. ACEPTACIÓN</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="33" label='Durante su permanencia en el país, ha tenido alguna dificultad con colombianos por ser extranjero?' [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-textarea index="33.1" label="Si selecciono 'SI'. Describa brevemente?" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="33" label='Cómo considera que ha sido la aceptación de su grupo familiar, por parte de la población Colombiana?' [options]="DataForm.calificacion" />
+                <div class="mt-3">
+                    <app-input-textarea index="33.1" label="Si selecciono 'SI'. Describa brevemente?" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-full">
+        <h1 class="text-xl">IX. PROTECCIÓN</h1>
+    </div>
+    <div class="col-span-full">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="35" label='Ha pasado por alguna situación de riesgo o abuso en su trayecto?' [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-textarea index="33.1" label="Si selecciono 'SI'. Describa brevemente?" />
+                </div>
+            </div>
+            <div class="col-span-4 ui-box-input">
+                <app-input-check index="36" label='Conoce que entidades actúan por su protección a nivel de seguridad y derechos?' [options]="DataForm.siNo" />
+                <div class="mt-3">
+                    <app-input-textarea index="33.1" label="Si selecciono 'SI'. Describa brevemente?" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
